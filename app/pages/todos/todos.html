@@ -1,0 +1,36 @@
+<ion-navbar *navbar>
+  <ion-title>Meetup</ion-title>
+</ion-navbar>
+
+
+<ion-content padding class="getting-started">
+
+  <h1>Todo App</h1>
+
+  <ion-card>
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Todo</ion-label>
+        <ion-input [(ngModel)]="todo" type="text"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <button small full (click)="addTodo()" [disabled]="!todo">Add a todo</button>
+  </ion-card>
+
+  <ion-card>
+
+    <ion-card-header>
+      Todo List
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let t of todos; let i = index">
+          {{t}}
+          <button clear (click)="removeTodo(i)">Remove</button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
